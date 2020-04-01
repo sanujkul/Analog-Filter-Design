@@ -1,0 +1,40 @@
+*Following is circuit implementation of LP, HP, BP filters from 
+*a single CC II +
+* based on paper: Multi-input single-output filter with reduced 
+* number of passive elements employing single current conveyor
+* by Ozcan, Cicekoglu, Kuntman.
+
+.include /Users/sanujkul/Documents/LTspice/libraries/ad844.cir
+*Xn Y X +V -V W Z MODELNAME
+X1 3 2 7 4 6 5 AD844
+
+R1 2 1 1k
+R2 3 0 500
+RL 0 5 10k
+
+C1 1 0 1n
+C2 1 3 1n
+
+I1 0 8 AC 1m
+I2 0 1 AC -1m
+*I3 0 3 AC 0m
+*For HIGH PASS I3 needs to be i1(R1/R2)(1 + C2/C1) = 4*I1
+F3 0 3 VI1 4
+*0V voltage source for current dependent(I1) current source(I3)
+VI1 8 2 AC 0V
+VccPositive 7 0 DC 12V
+VccNegative 4 0 DC -12V
+
+***** OUTPUT CODES **********
+*AC ANALYSIS
+.AC DEC 50 1K 10MEG
+***************************************
+*Nwxt two lines for TRANSIENT ANALYSIS
+*VT 2 0 PULSE(0 1.8 0 1n 1n 10n 22n)
+*.tran 0 100n
+***************************************
+*DC ANALYSIS
+*VT 2 0 DC 1V
+*.dc Vt 0 1.8 0.1
+***************************************
+
