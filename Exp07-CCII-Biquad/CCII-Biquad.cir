@@ -1,6 +1,6 @@
-*Following is circuit implementation of LP, HP, BP filters from 
+*Following is circuit implementation of LP, HP, BP filters from
 *a single CC II +
-* based on paper: Multi-input single-output filter with reduced 
+* based on paper: Multi-input single-output filter with reduced
 * number of passive elements employing single current conveyor
 * by Ozcan, Cicekoglu, Kuntman.
 
