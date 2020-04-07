@@ -24,8 +24,8 @@ VccNegative 4 0 DC -12V
 *LP: V2=V3=0, BP: V1=V3=0, HP:V2=V1=0
 *AP: V1=V2=V3, R1=R2, BR: V2=0
 V1 2 0 AC 0mV
-V2 1 0 AC 1mv
-V3 11 0 AC 0mV
+V2 1 0 AC 0mv
+V3 11 0 AC 1mV
 
 ***** OUTPUT CODES **********
 *AC ANALYSIS
