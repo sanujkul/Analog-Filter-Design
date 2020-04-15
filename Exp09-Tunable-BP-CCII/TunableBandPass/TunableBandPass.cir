@@ -4,31 +4,36 @@
 * by Prof. Raj Senani
 
 .include /Users/sanujkul/Documents/LTspice/Workspace/Analog-Filter-Design/Exp09-Tunable-BP-CCII/CCII-subckt/CCII.cir
+*CCIIs:
+*.SUBCKT CCIIplus Y X Z Vdd Vss Ib
+XCCii1 1 2 4 100 101 3 CCIIplus
+XCCii2 5 4 7 100 101 6 CCIIplus
+XCCii3 7 8 4 100 101 9 CCIIplus
 
-X1 7 8 11 1 4 3 CCIIplus
-
+*Capacitors:
+C1 7 0 50p
+C2 4 0 50p
 
 *VOLTAGE SOURCES:
-Vdd 1 0 DC 12V
-Vss 4 0 DC -12V
-*Vin at Y terminal
-Vy 7 0 DC 0V
-*0 at X terminal
-Vx 8 0 DC 5V
-*Vz 11 0 DC 0V
+Vdd 100 0 DC 12V
+Vss 101 0 DC -12V
+
+Vin 1 0 AC 1mV
+Vx1 2 0 DC 0V
+Vy2 5 0 DC 0V
+Vx3 8 0 DC 0V
+
 *CURRENT SOURCES:
-Ib 0 3 DC 0.5mA
-*Low resistance load for z terminal
-R1 11 0 100
+Ib1 0 3 DC 0.5mA
+Ib2 0 6 DC 0.5mA
+Ib3 0 9 DC {values3}
+.param values3 = 1
+.step param values3 list 0.1uA 10uA 100uA 1mA
+
 
 ***** OUTPUT CODES **********
-*DC ANALYSIS
-*.dc Ib 100uA 1mA 0.1m
-.dc Vx -0.25V 0.25 0.01
-
-
 *AC ANALYSIS
-*.*AC DEC 50 10K 20MEG
+.AC DEC 50 1K 10G
 ***************************************
 *Nwxt two lines for TRANSIENT ANALYSIS
 *VT 2 0 PULSE(0 1.8 0 1n 1n 10n 22n)
