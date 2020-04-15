@@ -15,7 +15,8 @@ C2 4 0 50p
 *VOLTAGE SOURCES:
 Vdd 100 0 DC 12V
 Vss 101 0 DC -12V
-Vin 1 0 AC 1mV
+
+Vin 1 0 DC 1mV
 Vx1 2 0 DC 0V
 Vy2 5 0 DC 0V
 Vx3 8 0 DC 0V
@@ -25,9 +26,8 @@ Ib2 0 6 DC 0.1mA
 Ib3 0 9 DC 100uA
 .param values1 = 1
 .step param values1 list 0.05mA 0.1mA 0.5mA 
-1mA 
-*AC ANALYSIS
-.AC DEC 50 1K 10G
+
+.dc Vin -150mV 150mV 0.01
 ***************************************
 *Nwxt two lines for TRANSIENT ANALYSIS
 *VT 2 0 PULSE(0 1.8 0 1n 1n 10n 22n)
@@ -36,5 +36,7 @@ Ib3 0 9 DC 100uA
 *DC ANALYSIS
 *VT 2 0 DC 1V
 *.dc Vt 0 1.8 0.1
+*AC ANALYSIS
+*.AC DEC 50 1K 10G
 ***************************************
 
