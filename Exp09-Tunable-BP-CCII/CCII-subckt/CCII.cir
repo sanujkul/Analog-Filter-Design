@@ -1,0 +1,26 @@
+*Following is circuit implementation of CCII+
+* for the exepriment 9(ii)
+*6 terminal device, Y,X,Z signal terminal and Vdd, Vss, Ib sources
+*.SUBCKT CCIIplus Y X Z Vdd Vss Ib
+.SUBCKT CCIIplus 7 8 11 1 4 3
+
+*Use following statement to vary model parameters
+.MODEL NPN1 NPN (BF=100 IS=1E-16A VAF=[infinite])
+.MODEL PNP1 PNP (BF=100 IS=1E-16A VAF=[infinite])
+*PNP
+Q1 2 2 1 1 PNP1
+Q2 5 2 1 1 PNP1
+Q3 6 6 1 1 PNP1
+Q4 11 6 1 1 PNP1
+Q5 9 9 7 7 PNP1
+Q6 10 9 8 8 PNP1
+*NPN
+Q7 5 5 7 7 NPN1
+Q8 6 5 8 8 NPN1
+Q9 3 3 4 4 NPN1
+Q10 2 3 4 4 NPN1
+Q11 9 3 4 4 NPN1
+Q12 10 10 4 4 NPN1
+Q13 11 10 4 4 NPN1
+
+.ENDS SubcircuitName

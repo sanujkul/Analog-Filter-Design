@@ -1,0 +1,41 @@
+*Following is circuit implementation of LP, HP, BP filters from
+*a two CFOAs
+* based on Lab Experiment 8 in course ECD07
+* by Prof. Raj Senani
+
+.include /Users/sanujkul/Documents/LTspice/Workspace/Analog-Filter-Design/Exp09-Tunable-BP-CCII/CCII-subckt/CCII.cir
+
+X1 7 8 11 1 4 3 CCIIplus
+
+
+*VOLTAGE SOURCES:
+Vdd 1 0 DC 12V
+Vss 4 0 DC -12V
+*Vin at Y terminal
+Vy 7 0 DC 0V
+*0 at X terminal
+Vx 8 0 DC 5V
+*Vz 11 0 DC 0V
+*CURRENT SOURCES:
+Ib 0 3 DC 0.5mA
+*Low resistance load for z terminal
+R1 11 0 100
+
+***** OUTPUT CODES **********
+*DC ANALYSIS
+*.dc Ib 100uA 1mA 0.1m
+.dc Vx -0.25V 0.25 0.01
+
+
+*AC ANALYSIS
+*.*AC DEC 50 10K 20MEG
+***************************************
+*Nwxt two lines for TRANSIENT ANALYSIS
+*VT 2 0 PULSE(0 1.8 0 1n 1n 10n 22n)
+*.tran 0 100n
+***************************************
+*DC ANALYSIS
+*VT 2 0 DC 1V
+*.dc Vt 0 1.8 0.1
+***************************************
+
