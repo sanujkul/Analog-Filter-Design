@@ -1,0 +1,58 @@
+*Following is circuit implementation of LP, HP, BP filters from
+*a two CFOAs
+* based on Lab Experiment 8 in course ECD07
+* by Prof. Raj Senani
+
+*Use following statement to vary model parameters
+.MODEL NPN1 NPN (BF=100 IS=1E-16A VAF=[infinite])
+.MODEL PNP1 PNP (BF=100 IS=1E-16A VAF=[infinite])
+*BF is common emmitter gain, Is is saturation current, VAF is early voltage
+*If not used the default will be used that are:
+* B=100, IS=1E-16A, VAF = infinite
+*PNP
+Q1 2 2 1 1 PNP1
+Q2 5 2 1 1 PNP1
+Q3 6 6 1 1 PNP1
+Q4 11 6 1 1 PNP1
+Q5 9 9 7 7 PNP1
+Q6 10 9 8 8 PNP1
+*NPN
+Q7 5 5 7 7 NPN1
+Q8 6 5 8 8 NPN1
+Q9 3 3 4 4 NPN1
+Q10 2 3 4 4 NPN1
+Q11 9 3 4 4 NPN1
+Q12 10 10 4 4 NPN1
+Q13 11 10 4 4 NPN1
+
+*VOLTAGE SOURCES:
+Vdd 1 0 DC 12V
+Vss 4 0 DC -12V
+*Vin at Y terminal
+Vy 7 0 DC 0V
+*0 at X terminal  
+Vx 8 0 DC 5V
+*Vz 11 0 DC 0V
+*CURRENT SOURCES:
+Ib 0 3 DC 0.5mA
+*Low resistance load for z terminal
+R1 11 0 100
+
+***** OUTPUT CODES **********
+*DC ANALYSIS
+*.dc Ib 100uA 1mA 0.1m
+.dc Vx -0.25V 0.25 0.01
+
+
+*AC ANALYSIS
+*.*AC DEC 50 10K 20MEG
+***************************************
+*Nwxt two lines for TRANSIENT ANALYSIS
+*VT 2 0 PULSE(0 1.8 0 1n 1n 10n 22n)
+*.tran 0 100n
+***************************************
+*DC ANALYSIS
+*VT 2 0 DC 1V
+*.dc Vt 0 1.8 0.1
+***************************************
+
