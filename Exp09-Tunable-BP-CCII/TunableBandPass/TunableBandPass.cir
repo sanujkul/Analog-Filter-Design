@@ -9,29 +9,23 @@
 XCCii1 1 2 4 100 101 3 CCIIplus
 XCCii2 5 4 7 100 101 6 CCIIplus
 XCCii3 7 8 4 100 101 9 CCIIplus
-
 *Capacitors:
 C1 7 0 50p
 C2 4 0 50p
-
 *VOLTAGE SOURCES:
 Vdd 100 0 DC 12V
 Vss 101 0 DC -12V
-
 Vin 1 0 AC 1mV
 Vx1 2 0 DC 0V
 Vy2 5 0 DC 0V
 Vx3 8 0 DC 0V
-
 *CURRENT SOURCES:
-Ib1 0 3 DC 0.5mA
-Ib2 0 6 DC 0.5mA
-Ib3 0 9 DC {values3}
-.param values3 = 1
-.step param values3 list 0.1uA 10uA 100uA 1mA
-
-
-***** OUTPUT CODES **********
+Ib1 0 3 DC {values1}
+Ib2 0 6 DC 0.1mA
+Ib3 0 9 DC 100uA
+.param values1 = 1
+.step param values1 list 0.05mA 0.1mA 0.5mA 
+1mA 
 *AC ANALYSIS
 .AC DEC 50 1K 10G
 ***************************************
