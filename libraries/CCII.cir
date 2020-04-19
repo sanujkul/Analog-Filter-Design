@@ -23,4 +23,4 @@ Q11 9 3 4 4 NPN1
 Q12 10 10 4 4 NPN1
 Q13 11 10 4 4 NPN1
 
-.ENDS SubcircuitName
+.ENDS CCIIplus
