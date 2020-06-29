@@ -1,0 +1,45 @@
+*Following is circuit implementation of Log Domain Filter
+* based on Lab Experiment 10 in course ECD07
+* by Prof. Raj Senani
+
+.MODEL NPN1 NPN (BF=200 IS=1E-16A VAF=[infinite])
+
+Q1 2 3 0 0 NPN1
+Q2 1 2 3 3 NPN1
+Q3 1 2 4 4 NPN1
+Q4 5 4 0 0 NPN1
+
+F1 2 1 V0 1
+F2 0 3 V0 1
+F3 5 1 V0 1
+
+Iin 3 0 SIN(0 {values} 10)
+.param values = 1
+.step param values list 1uA 10uA 100uA 200uA 400uA
+
+Vcc 1 0 DC 5V
+
+Rl 5 0 1k
+C1 4 0 10pf
+
+*Creating controlling source
+IB 0 101 DC 1mA
+V0 101 0 DC 0
+*RI 100 102 1K
+
+.tran 0 1
+
+.four 10 5 I(Rl)
+
+***************************************
+*Nwxt two lines for TRANSIENT ANALYSIS
+*VT 2 0 PULSE(0 1.8 0 1n 1n 10n 22n)
+*.tran 0 100n
+***************************************
+*DC ANALYSIS
+*VT 2 0 DC 1V
+*.dc Vt 0 1.8 0.1
+*AC ANALYSIS
+*.AC DEC 50 1K 10G
+***************************************
+
