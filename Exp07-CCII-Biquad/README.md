@@ -7,21 +7,24 @@
 ## AIM:
 
 **1. Verify that the circuit shown in Figure 2 realizes a low pass, bandpass and high pass**
-    **filter as follows:**
-       **a. Low pass: i1 = i3 = 0, i2 = iin**
-       **b. Band pass: i1 = i2 =0, i3 = iin**
-       **c. High pass: i1 = -i2 and i3 = i1(R1/R2)(1 + C2/C1)
-2. Discuss Limitations of the circuit
-3. Comment upon if this is the only single CCII/single CFOA circuit which can realise**
-    **an Universal filter?
-4. Find out by searching the literature if there is any similar circuit known which can**
-    **realise universal filter using a single CCII/CFOA in voltage mode i.e inputs and**
-    **output both being voltages rather than currents?**
-
+    **filter as follows:**  
+       **a. Low pass: i1 = i3 = 0, i2 = iin**  
+       **b. Band pass: i1 = i2 =0, i3 = iin**  
+       **c. High pass: i1 = -i2 and i3 = i1(R1/R2)(1 + C2/C1)  
+2. Discuss Limitations of the circuit  
+3. Comment upon if this is the only single CCII/single CFOA circuit which can realise**  
+    **an Universal filter?  
+4. Find out by searching the literature if there is any similar circuit known which can**. 
+    **realise universal filter using a single CCII/CFOA in voltage mode i.e inputs and**  
+    **output both being voltages rather than currents?**  
+   
+![](https://i.imgur.com/1qht7Vp.png)
 
 ## 1. SPICE ANALYSIS
 
 ### a. LOW PASS
+
+![](https://i.imgur.com/SzY6KRD.png)
 
 **Observation:**
 
@@ -34,6 +37,7 @@
 
 
 ### b. BAND PASS
+![](https://i.imgur.com/kJkmUks.png)
 
 ### Observations:
 
@@ -44,6 +48,7 @@
 
 
 ### c. HIGH PASS
+![](https://i.imgur.com/wFsr6W5.png)
 
 **Observations:**
 
