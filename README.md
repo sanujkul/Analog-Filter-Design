@@ -2,7 +2,7 @@
 This repository contains SPICE implementation and simulation of several Analog filters studied in the course Analog Filter Design,
  ECD07, NSIT, by Prof. Raj Senani.
 
-## Please find detaied experiment report in project specific README.md. 
+## Please find detaied experiment reports in project specific README.md. 
 ### NOTE: Experiments before these were hardware experiments that were performed in LAB and those are not documented here. 
 
 # OVERVIEW
